@@ -106,7 +106,7 @@ h1 {
 }
 
 table#table {
-    margin: auto auto;
+    margin: auto;
     border-collapse: separate;
     border-spacing: 5px;
     background-color: #D4DFEB;
@@ -120,6 +120,23 @@ table#table {
     border-radius: 6px;
     padding: 5px 3px;
     background: linear-gradient(to bottom, #BEC4CE 0%, #E2E8EC 100%);
+}
+
+div#top-article {
+    margin: auto;
+    margin-bottom: 0;
+    width: 407px;
+    height: 70px;
+}
+
+div#top-div {
+    background-color: #1C69B0;
+    height: 50px;
+}
+
+div#bottom-div {
+    background-color: #1A609E;
+    height: 20px;
 }
 
 .cell.points {
