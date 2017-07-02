@@ -105,18 +105,45 @@ h1 {
     font-size: 250%;
 }
 
-table {
+table#table {
     margin: auto auto;
+    border-collapse: separate;
+    border-spacing: 5px;
     background-color: #D4DFEB;
+    table-layout: fixed;
 }
 
-input.cell {
-    width: 1em;
-    margin: 2px;
-    border-radius: 5px;
-    border: none;
-    box-shadow: 0 -1px 1px darkgrey;
+.cell {
+    box-shadow: 0 1px 1px grey inset, 0 -1px .020em darkgrey inset, 1px 0 .020em darkgrey inset, -1px 0 .020em darkgrey inset;
+    width: 25px;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 3px;
     background: linear-gradient(to bottom, #BEC4CE 0%, #E2E8EC 100%);
+}
+
+.cell.points {
+    color: white;
+}
+
+.cell.tl {
+    background: #61B55B;
+}
+
+.cell.tw {
+    background: #F3971B;
+}
+
+.cell.dw {
+    background: #C24948;
+}
+
+.cell.dl {
+    background: #0083C6;
+}
+
+.cell.plus {
+    background: #824B9C;
 }
 
 
