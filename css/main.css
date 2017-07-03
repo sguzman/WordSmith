@@ -111,16 +111,20 @@ table#table {
     border-spacing: 5px;
     background-color: #D4DFEB;
     table-layout: fixed;
+    width: 407px;
+    height: 300px;
+    box-sizing: border-box;
+    user-select: none;
 }
 
-.cell {
+td.cell {
     box-shadow: 0 1px 5px grey inset, 0 -1px .020em darkgrey inset, 1px 0 .020em darkgrey inset, -1px 0 .020em darkgrey inset;
     width: 25px;
     text-align: center;
     border-radius: 6px;
     padding: 5px 3px;
     background: linear-gradient(to bottom, #BEC4CE 0%, #E2E8EC 100%);
-    line-height: 100%;
+    overflow: hidden;
 }
 
 div#top-article {
@@ -171,7 +175,7 @@ div#bottom-div {
     width: 407px;
 }
 
-.letters {
+span.letters {
     border-radius: 7px;
     background-color: yellow;
     font-size: 200%;
@@ -180,6 +184,11 @@ div#bottom-div {
     background: linear-gradient(to bottom, #F9B128 0%, #F6E600 100%);
     box-shadow: 0 2px 10px #E27D00 inset, 0 -1px .020em #E27D00 inset, 1px 0 .020em #E27D00 inset, -1px 0 .020em #E27D00 inset;
     margin-bottom: 3px;
+}
+
+td.cell > span.letters {
+    position: absolute;
+    color: black;
 }
 
 
