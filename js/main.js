@@ -9,19 +9,62 @@ function drag(ev) {
 function drop(ev) {
     ev.preventDefault();
     const data = ev.dataTransfer.getData("text");
-    const source = document.getElementById(data);
-    if (ev.target.tagName !== 'TD') {
-        return;
+    const source = $(`#${data}`)[0];
+    let target = ev.target;
+    if (target.tagName === 'SPAN') {
+        target = target.parentNode;
     }
 
-    if (ev.target.childElementCount > 0) {
-        ev.target.removeChild(ev.target.children[0]);
-    }
-
-    if (source.parentNode.tagName === 'TD') {
-        ev.target.appendChild(source);
+    if (source.id.length !== 1) {
+        if (source.parentNode.childElementCount === 2) {
+            source.parentNode.firstChild.hidden = false;
+            if (target.childElementCount === 2) {
+                target.removeChild(target.childNodes[1]);
+                source.id = `${data}-${target.id}`;
+                target.appendChild(source);
+            } else if (target.childElementCount === 1 && target.firstChild.className === 'letters') {
+                target.removeChild(target.firstChild);
+                source.id = `${data}-${target.id}`;
+                target.appendChild(source);
+            } else if (target.childElementCount === 1) {
+                target.firstChild.hidden = true;
+                source.id = `${data}-${target.id}`;
+                target.appendChild(source);
+            } else {
+                source.id = `${data}-${target.id}`;
+                target.appendChild(source);
+            }
+        } else {
+            if (target.childElementCount === 2) {
+                target.removeChild(target.childNodes[1]);
+                source.id = `${data}-${target.id}`;
+                target.appendChild(source);
+            } else if (target.childElementCount === 1 && target.firstChild.className === 'letters') {
+                target.removeChild(target.firstChild);
+                source.id = `${data}-${target.id}`;
+                target.appendChild(source);
+            } else if (target.childElementCount === 1) {
+                target.firstChild.hidden = true;
+                source.id = `${data}-${target.id}`;
+                target.appendChild(source);
+            } else {
+                source.id = `${data}-${target.id}`;
+                target.appendChild(source);
+            }
+        }
     } else {
-        $(`#${data}`).clone().attr('id', `${source.id}-${ev.target.id}`).appendTo(ev.target);
+        if (target.childElementCount === 2) {
+            target.removeChild(target.childNodes[1]);
+            $('#' + data).clone().attr('id', `${data}-${target.id}`).appendTo(target);
+        } else if (target.childElementCount === 1 && target.firstChild.className === 'letters') {
+            target.removeChild(target.firstChild);
+            $('#' + data).clone().attr('id', `${data}-${target.id}`).appendTo(target);
+        } else if (target.childElementCount === 1) {
+            target.firstChild.hidden = true;
+            $('#' + data).clone().attr('id', `${data}-${target.id}`).appendTo(target);
+        } else {
+            $('#' + data).clone().attr('id', `${data}-${target.id}`).appendTo(target);
+        }
     }
 }
 
