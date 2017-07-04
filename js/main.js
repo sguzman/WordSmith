@@ -25,8 +25,15 @@ function drop(ev) {
     }
 }
 
-function removeOnDblClick(ev) {
-    if (ev.target.parentNode.tagName === 'TD') {
-        ev.target.parentNode.removeChild(ev.target);
+function removeOnClick(ev) {
+    let target = ev.target;
+    if (target.parentNode.tagName !== 'TD') {
+        return;
     }
+
+    if (target.parentNode.childElementCount === 2) {
+        target.parentNode.firstChild.hidden = false;
+    }
+    target.parentNode.removeChild(target);
+
 }
