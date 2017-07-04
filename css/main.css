@@ -208,8 +208,13 @@ span.letters {
 }
 
 td.cell > span.letters {
-    position: absolute;
+    height: 99%;
+    width: 100%;
+    font-size: 125%;
+    padding-top: 4px;
+    border-radius: 4px;
     color: black;
+    margin-bottom: 0;
 }
 
 
