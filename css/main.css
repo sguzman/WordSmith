@@ -142,11 +142,6 @@ div#container > * {
     margin: auto;
 }
 
-td.cell > * {
-    float: left;
-    clear: none;
-}
-
 td.cell:first-child {
     margin-left: .01em;
 }
